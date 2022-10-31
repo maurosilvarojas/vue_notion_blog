@@ -12,5 +12,12 @@ export default defineNuxtConfig({
       },
     },
   },
+
   css: ["~/assets/css/tailwind.css"],
+  watchers: {
+    webpack: {
+      aggregateTimeout: 300,
+      poll: 1000,
+    },
+  },
 });
