@@ -109,4 +109,7 @@ export default {
   },
   methods: {},
 };
+definePageMeta({
+  layout: "custom",
+});
 </script>

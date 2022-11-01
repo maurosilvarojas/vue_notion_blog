@@ -16,6 +16,9 @@ export default {
     
   },
 };
+definePageMeta({
+  layout: "custom",
+});
 </script>
 
 <template>
