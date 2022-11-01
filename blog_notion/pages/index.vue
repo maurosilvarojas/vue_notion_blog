@@ -1,50 +1,7 @@
 <template>
   <div>
     <!-- navbar -->
-    <nav class="relative container last: mx-auto p-6">
-      <div class="flex items-center justify-between">
-        <!-- logo -->
-        <div class="flex flex-row">
-          <p class="text-red-700 font-extrabold text-4xl">RED</p>
-          <p class="text-4xl">MauroSilva</p>
-        </div>
-        <!-- menu items -->
-        <ul
-          class="
-            flex flex-col
-            md:flex-row
-            items-center
-            space-y-6
-            md:space-y-0 md:space-x-6
-            lg:md:-x-8
-          "
-        >
-          <li
-            class="text-lg md:text-base lg:text-lg font-medium group"
-            v-for="menu in menus"
-          >
-            <a href="" class="hover:text-red-700">{{ menu }}</a>
-          </li>
-        </ul>
 
-        <a
-          href=""
-          class="
-            p-3
-            px-6
-            py-2
-            text-white
-            bg-red-500
-            rounded-full
-            baseline
-            hover:bg-brightRedLight
-          "
-          >Github</a
-        >
-      </div>
-    </nav>
-
-    <hr />
     <!-- main story -->
     <section id="mainstory">
       <!-- flex container -->
@@ -89,7 +46,7 @@
                 px-6
                 py-2
                 text-white
-                bg-red-500
+                bg-red-700
                 rounded-full
                 baseline
                 hover:bg-brightRedLight
@@ -148,10 +105,7 @@
 <script>
 export default {
   data() {
-    return {
-      menus: ["Blog", "Portfolio", "CV", "Contact"],
-      setup: "dark",
-    };
+    return {};
   },
   methods: {},
 };
