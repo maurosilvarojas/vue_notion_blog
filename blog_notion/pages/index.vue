@@ -102,14 +102,9 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {};
-  },
-  methods: {},
-};
-definePageMeta({
-  layout: "custom",
-});
+<script setup>
+
+  definePageMeta({
+    layout: "custom",
+  });
 </script>
