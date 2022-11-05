@@ -10,14 +10,15 @@ export default async (req, res) => {
     const response = await notion.databases.query({
       database_id: databaseId,
     });
-    // console.log("RESPONSE", response);
+    // console.log("RESPONSE RAW *****", response);
     response.results.map((post) => {
       posts.push({
         id: post?.id,
         title: post?.properties?.Name?.title[0]?.plain_text,
+        coverImage:post?.cover?.external?.url
       });
     });
-    console.log("RETURN", posts);
+    console.log("RETURN from notion.js", posts);
     return posts;
   }
 };
