@@ -65,7 +65,9 @@
 </template>
 
 <script>
+// import blocksGetter from "../utils/blocksGetter"
 export default {
+  
   // Properties returned from data() become reactive state
   // and will be exposed on `this`.
   data() {
@@ -80,6 +82,7 @@ export default {
     console.log("this is mounted");
     this.msg = "THIS IS MOUNTED";
     this.findPosts();
+    // blocksGetter();
   },
   beforeUpdate() {
     console.log("HOOK BEFORE UPDATE fired");
@@ -93,10 +96,11 @@ export default {
     },
     findPosts: async function () {
       console.log("finding posts ..... ");
-      const responseAPI = await $fetch("/api/notion");
+      const responseAPI = await $fetch("/api/notionDatabases");
       console.log("RESPONSE find post", responseAPI);
       this.posts = responseAPI;
     },
+    
   },
 };
 

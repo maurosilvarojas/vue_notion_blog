@@ -10,7 +10,7 @@ export default async (req, res) => {
     const response = await notion.databases.query({
       database_id: databaseId,
     });
-    // console.log("RESPONSE RAW *****", response);
+     console.log("RESPONSE RAW *****", JSON.stringify(response))
     response.results.map((post) => {
       posts.push({
         id: post?.id,
