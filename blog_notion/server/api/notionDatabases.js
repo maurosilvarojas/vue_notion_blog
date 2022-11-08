@@ -10,7 +10,7 @@ export default async (req, res) => {
     const response = await notion.databases.query({
       database_id: databaseId,
     });
-     console.log("RESPONSE RAW *****", JSON.stringify(response))
+    //  console.log("RESPONSE RAW *****", JSON.stringify(response))
     response.results.map((post) => {
       posts.push({
         id: post?.id,
@@ -18,7 +18,7 @@ export default async (req, res) => {
         coverImage:post?.cover?.external?.url
       });
     });
-    console.log("RETURN from notion.js", posts);
+    // console.log("RETURN from notion.js", posts);
     return posts;
   }
 };
