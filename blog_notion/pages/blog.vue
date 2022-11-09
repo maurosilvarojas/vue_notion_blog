@@ -137,7 +137,7 @@ export default {
     };
   },
   mounted() {
-    console.log("this is mounted");
+    // console.log("this is mounted");
 
     this.findPosts();
     const parent_id = "43cff44bff5a4073b81376c0ca236f22";
@@ -156,7 +156,7 @@ export default {
     findPosts: async function () {
       // console.log("finding posts ..... ");
       const responseAPI = await $fetch("/api/notionDatabases");
-      console.log("RESPONSE find post", responseAPI);
+      // console.log("RESPONSE find post", responseAPI);
       this.posts = responseAPI;
     },
   },

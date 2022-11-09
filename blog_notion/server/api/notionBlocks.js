@@ -12,14 +12,14 @@ export default async (req, res) => {
     const response = await notion.blocks.children.list({
       block_id: postId,
     });
-    console.log("RESPONSE block RAW *****", JSON.stringify(response));
+    // console.log("RESPONSE block RAW *****", JSON.stringify(response));
     response.results.map((childrenPostContent) => {
       postContent.push({
         id: childrenPostContent?.id,
         type: childrenPostContent?.type,
       });
     });
-    console.log("RETURN BLOCK", postContent);
+    // console.log("RETURN BLOCK", postContent);
     return postContent;
   }
 };

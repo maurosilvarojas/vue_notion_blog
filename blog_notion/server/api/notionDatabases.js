@@ -32,7 +32,7 @@ export default async (req, res) => {
         abstract: post?.properties?.abstract?.rich_text[0]?.plain_text,
       });
     });
-    console.log("RETURN POST OBJECTfrom notion.js", posts);
+    // console.log("RETURN POST OBJECTfrom notion.js", posts);
     return posts;
   }
 };
