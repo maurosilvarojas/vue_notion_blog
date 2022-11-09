@@ -137,7 +137,7 @@ export default {
     };
   },
   mounted() {
-    // console.log("this is mounted");
+    console.log("this is mounted");
 
     this.findPosts();
     const parent_id = "43cff44bff5a4073b81376c0ca236f22";
