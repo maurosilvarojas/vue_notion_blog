@@ -154,9 +154,9 @@ export default {
       this.count++;
     },
     findPosts: async function () {
-      // console.log("finding posts ..... ");
+      console.log("finding posts ..... ");
       const responseAPI = await $fetch("/api/notionDatabases");
-      // console.log("RESPONSE find post", responseAPI);
+      console.log("RESPONSE find post", responseAPI);
       this.posts = responseAPI;
     },
   },
