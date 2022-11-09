@@ -1,67 +1,79 @@
 <template>
-  <div>
+  <div class="bg-gray-50 container mt-top-bar mx-auto">
     <p>Lately on my code trip...</p>
-
-    <ul class="grid-cols-4">
-      <li v-for="post in posts">
-        <!-- blog card -->
-        <div
+    <div class="place-content-center">
+      <div class="bg-gray-50">
+        <ul
           class="
-            container
-            flex flex-col-reverse
-            md:flex-row
-            items-center
-            px-6
+            mt-12
+            grid
+            gap-6
+            sm:px-8
             mx-auto
-            mt-10
-            space-y-0
-            md:space-y-0
+            md:grid-cols-2
+            lg:grid-cols-3
+            md:max-w-none
           "
         >
-          <!-- left item -->
-          <div class="flex flex-col mb-32 space-y-12 md:w-1/2">
-            <!-- title -->
-            <h1
+          <li v-for="post in posts">
+            <!-- blog card -->
+            <div
               class="
-                max-w-md
-                text-4xl
-                font-bold
-                text-center
-                md:text-5xl md:text-left
+                flex flex-col
+                bg-slate-50
+                rounded-lg
+                shadow-lg
+                overflow-hidden
+                flex-1
               "
             >
-              {{ post.title }}
-            </h1>
-            <!-- caption -->
-            <p class="max-w-sm text-center text-darkGrayishBlue md:text-left">
-              Bring everyone together to build better productsBring everyone
-              together to build better productsBring everyone together to build
-              better productsBring everyone together to build better products
-            </p>
-            <div class="flex justify-center md:justify-start">
-              <a
-                href=""
-                class="
-                  p-3
-                  px-6
-                  py-2
-                  text-white
-                  bg-red-700
-                  rounded-full
-                  baseline
-                  hover:bg-brightRedLight
-                "
-                >READ MORE</a
-              >
+              <div class="flex flex-col space-y-12">
+                <div class="bg-gray-500 h-px">
+                  <img class="shrink" v-bind:src="post.coverImage" />
+                </div>
+
+                <!-- title -->
+                <h1
+                  class="
+                    max-w-md
+                    px-4
+                    text-lg text-white
+                    font-bold
+                    text-center
+                    md:text-5xl md:text-left
+                  "
+                >
+                  {{ post.title }}
+                </h1>
+                <!-- caption -->
+                <p class="max-w-sm px-2 text-center text-gray-50 md:text-left">
+                  Bring everyone together to build better productsBring everyone
+                  together to build better productsBring everyone together to
+                  build better productsBring everyone together to build better
+                  products
+                </p>
+                <!-- <div class="flex justify-center md:justify-start">
+                  <a
+                    href=""
+                    class="
+                      p-3
+                      px-6
+                      py-2
+                      text-white
+                      bg-red-700
+                      rounded-full
+                      baseline
+                      hover:bg-brightRedLight
+                    "
+                    >READ MORE</a
+                  >
+                </div> -->
+              </div>
             </div>
-          </div>
-          <!-- image -->
-          <div class="mx-auto md:w-1/2">
-            <img class="object-fill" v-bind:src="post.coverImage" />
-          </div>
-        </div>
-      </li>
-    </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 

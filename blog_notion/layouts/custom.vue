@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-gray-50">
     <!-- navbar -->
     <nav class="relative container last: mx-auto p-6">
       <div class="flex items-center justify-between">
