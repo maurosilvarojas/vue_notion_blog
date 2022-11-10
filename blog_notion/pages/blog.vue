@@ -13,7 +13,7 @@
         md:text-6xl
       "
     >
-      Lately on my code trip...
+      Lately on my code trip... {{ msg }}
     </h1>
 
     <!-- cards -->
@@ -156,7 +156,7 @@ export default {
     findPosts: async function () {
       console.log("finding posts ..... ");
       const responseAPI = await $fetch("/api/notionDatabases");
-      
+
       console.log("RESPONSE find post", responseAPI);
       this.posts = responseAPI;
     },

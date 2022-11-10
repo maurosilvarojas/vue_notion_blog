@@ -2,7 +2,7 @@ import { Client } from "@notionhq/client";
 
 export default async (req, res) => {
   console.log("BLOKS REQUEST");
-  const notion = new Client({ auth: this.$config.NOTION_API_KEY });
+  const notion = new Client({ auth: process.env.NOTION_API_KEY });
   const postContent = [];
   if (req.method === "POST") {
     // console.log("POST REQUEST");

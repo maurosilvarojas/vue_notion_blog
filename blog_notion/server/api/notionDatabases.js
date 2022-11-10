@@ -8,14 +8,14 @@ export function buildTags(_tagsArray) {
 }
 
 export default async (req, res) => {
-  const config = useRuntimeConfig();
-  const notion = new Client({ auth: config.NOTION_API_KEY });
+  
+  const notion = new Client({ auth: process.env.NOTION_API_KEY });
   const posts = [];
   if (req.method === "GET") {
     // console.log("POST REQUEST");
   } else {
-    const databaseId = config.NOTION_DATABASE_ID;
-    console.log("db to find", config.NOTION_DATABASE_ID);
+    const databaseId = process.env.NOTION_DATABASE_ID;
+    console.log("db to find", process.env.NOTION_DATABASE_ID);
     const response = await notion.databases.query({
       database_id: databaseId,
     });
