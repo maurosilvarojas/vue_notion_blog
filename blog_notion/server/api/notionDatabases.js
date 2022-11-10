@@ -8,14 +8,15 @@ export function buildTags(_tagsArray) {
 }
 
 export default async (req, res) => {
-  
-  const notion = new Client({ auth: process.env.NOTION_API_KEY });
+  const notion = new Client({
+    auth: "secret_jEDyyrG09fZbK6mHI4TGOLuCgdZkCeen8b69MwmbHfx",
+  });
   const posts = [];
   if (req.method === "GET") {
     // console.log("POST REQUEST");
   } else {
-    const databaseId = process.env.NOTION_DATABASE_ID;
-    console.log("db to find", process.env.NOTION_DATABASE_ID);
+    const databaseId = "5cfa52c25735482d835ac9f2b6c18570";
+    // console.log("db to find", process.env.NOTION_DATABASE_ID);
     const response = await notion.databases.query({
       database_id: databaseId,
     });
