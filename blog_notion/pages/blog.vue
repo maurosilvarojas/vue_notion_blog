@@ -156,7 +156,8 @@ export default {
     findPosts: async function () {
       console.log("finding posts ..... ");
       const responseAPI = await $fetch("/api/notionDatabases");
-      console.log("RESPONSE find post", responseAPI);
+
+      console.log("RESPONSE find post", process.env.NOTION_DATABASE_ID);
       this.posts = responseAPI;
     },
   },
