@@ -1,5 +1,3 @@
-
-
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   build: {
@@ -14,8 +12,8 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     // The private keys which are only available within server-side
-    NOTION_API_KEY: process.env.NOTION_API_KEY,
-    NOTION_DATABASE_ID:process.env.NOTION_DATABASE_ID,
+    NOTION_API_KEY: "secret_jEDyyrG09fZbK6mHI4TGOLuCgdZkCeen8b69MwmbHfx",
+    NOTION_DATABASE_ID: "5cfa52c25735482d835ac9f2b6c18570",
     // Keys within public, will be also exposed to the client-side
     public: {
       apiBase: "/api",
