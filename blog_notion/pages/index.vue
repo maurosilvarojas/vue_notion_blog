@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mx-8">
     <!-- navbar -->
 
     <!-- main story -->
@@ -70,7 +70,7 @@
         px-4
         mx-auto
         mt-10
-        apsace-y-12
+        space-y-12
         md:space-y-0 md:flex-row
       "
     >
@@ -103,8 +103,7 @@
 </template>
 
 <script setup>
-
-  definePageMeta({
-    layout: "custom",
-  });
+definePageMeta({
+  layout: "custom",
+});
 </script>

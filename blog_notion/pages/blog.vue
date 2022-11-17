@@ -41,6 +41,9 @@
                 <div class="bg-gray-500 bg-opacity-25 h-px">
                   <img class="shrink" v-bind:src="post.coverImage" />
                 </div>
+                <NuxtLink class="hover:text-red-700" :to="/posts/ + post.id">
+                  GOGOGO
+                </NuxtLink>
                 <!-- <div class="flex flex-row-reverse flex-wrap items-end">
                   <ul>
                     <li v-for="tag in post.tags">
