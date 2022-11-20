@@ -38,12 +38,12 @@
             >
               <!-- tags -->
               <div class="flex flex-col space-y-12">
-                <div class="bg-gray-500 bg-opacity-25 h-px">
-                  <img class="shrink" v-bind:src="post.coverImage" />
-                </div>
                 <NuxtLink class="hover:text-red-700" :to="/posts/ + post.id">
-                  GOGOGO
+                  <div class="bg-gray-500 bg-opacity-25 h-px">
+                    <img class="shrink" v-bind:src="post.coverImage" />
+                  </div>
                 </NuxtLink>
+
                 <!-- <div class="flex flex-row-reverse flex-wrap items-end">
                   <ul>
                     <li v-for="tag in post.tags">
@@ -125,46 +125,19 @@
   </div>
 </template>
 
-<script>
-import blocksGetter from "../utils/blocksGetter";
-export default {
-  // Properties returned from data() become reactive state
-  // and will be exposed on `this`.
-  data() {
-    return {
-      count: 0,
-      posts: [],
-      msg: "",
-      blogImageUrl:
-        "https://www.notion.so/images/page-cover/rijksmuseum_rembrandt_1642.jpg",
-    };
-  },
-  mounted() {
-    console.log("this is mounted");
+<script setup >
+// console.log("BLOG STARTED");
+const posts = await findPosts();
+// console.log("RESPONSE", posts);
 
-    this.findPosts();
-    const parent_id = "43cff44bff5a4073b81376c0ca236f22";
-    // blocksGetter(parent_id);
-  },
-  beforeUpdate() {
-    // console.log("HOOK BEFORE UPDATE fired");
-  },
-  updated() {
-    // console.log("HOOK UPDATE fired");
-  },
-  methods: {
-    increment() {
-      this.count++;
-    },
-    findPosts: async function () {
-      console.log("finding posts ..... ");
-      const responseAPI = await $fetch("/api/notionDatabases");
+async function findPosts() {
+  // console.log("finding posts ..... ");
+  const responseAPI = await $fetch("/api/notionDatabases");
 
-      console.log("RESPONSE find post", responseAPI);
-      this.posts = responseAPI;
-    },
-  },
-};
+  // console.log("RESPONSE find post", responseAPI);
+  // this.posts = responseAPI;
+  return responseAPI;
+}
 
 definePageMeta({
   layout: "custom",

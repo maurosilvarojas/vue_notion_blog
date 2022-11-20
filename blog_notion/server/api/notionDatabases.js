@@ -8,7 +8,6 @@ export function buildTags(_tagsArray) {
 }
 
 export default async (req, res) => {
-  
   const notion = new Client({ auth: process.env.NOTION_API_KEY });
   const posts = [];
   if (req.method === "GET") {
@@ -34,7 +33,7 @@ export default async (req, res) => {
         abstract: post?.properties?.abstract?.rich_text[0]?.plain_text,
       });
     });
-    console.log("RETURN POST OBJECTfrom notion.js", posts);
+    // console.log("RETURN POST OBJECTfrom notion.js", posts);
     return posts;
   }
 };
