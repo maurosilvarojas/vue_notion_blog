@@ -15,13 +15,24 @@
 <script setup>
 import blocksGetter from "../../utils/blocksGetter";
 
-const route = useRoute();
+const { postId } = useRoute().params;
+let blocks = [];
 const condition = false;
-const parent_id = route?.params?.postId;
-const blocks = await blocksGetter(parent_id);
-console.log("BLOCK_ZERO", blocks);
+console.log("findinsg id ..... from", postId);
+const parent_id = postId;
+blocks = await findBlocks(parent_id);
 
-if (route.params.group === "admins" && !route.params.id) {
-  console.log("Warning! Make sure user is authenticated!");
+// console.log("BLOCK_ZERO", blocks);
+
+async function findBlocks(parent) {
+  console.log("findinsg blocks ..... from", parent);
+  const _responseAPI = await blocksGetter(parent);
+
+  console.log("BLOCK_find blocks", blocks);
+  return _responseAPI;
 }
+
+// if (route.params.group === "admins" && !route.params.id) {
+//   console.log("Warning! Make sure user is authenticated!");
+// }
 </script>

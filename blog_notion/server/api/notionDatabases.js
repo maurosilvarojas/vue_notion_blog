@@ -14,7 +14,7 @@ export default async (req, res) => {
     // console.log("POST REQUEST");
   } else {
     const databaseId = process.env.NOTION_DATABASE_ID;
-    console.log("db to find", process.env.NOTION_DATABASE_ID);
+    // console.log("db to find", process.env.NOTION_DATABASE_ID);
     const response = await notion.databases.query({
       database_id: databaseId,
     });

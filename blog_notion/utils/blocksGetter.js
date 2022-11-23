@@ -1,10 +1,11 @@
-import { Client } from "@notionhq/client";
-
 export default async function blocksGetter(_postId) {
+  console.log("PARENT ID", _postId);
   const data = { postId: _postId };
-  const responseAPI = await $fetch("/api/notionBlocks", {
+  const responseTest = await $fetch("/api/notionblocks", {
+    method: "post",
     body: JSON.stringify(data),
   });
+  console.log("RESPONSE TEST", responseTest);
   // console.log("BLOCKS GETTER", responseAPI);
-  return responseAPI;
+  return responseTest;
 }

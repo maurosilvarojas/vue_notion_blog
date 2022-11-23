@@ -38,11 +38,11 @@
             >
               <!-- tags -->
               <div class="flex flex-col space-y-12">
-                <NuxtLink class="hover:text-red-700" :to="/posts/ + post.id">
-                  <div class="bg-gray-500 bg-opacity-25 h-px">
+                <div class="bg-gray-500 bg-opacity-25 h-px">
+                  <NuxtLink class="hover:text-red-700" :to="/posts/ + post.id">
                     <img class="shrink" v-bind:src="post.coverImage" />
-                  </div>
-                </NuxtLink>
+                  </NuxtLink>
+                </div>
 
                 <!-- <div class="flex flex-row-reverse flex-wrap items-end">
                   <ul>
@@ -128,7 +128,7 @@
 <script setup >
 // console.log("BLOG STARTED");
 const posts = await findPosts();
-// console.log("RESPONSE", posts);
+// console.log("POST RESPONSE", posts[0]);
 
 async function findPosts() {
   // console.log("finding posts ..... ");
