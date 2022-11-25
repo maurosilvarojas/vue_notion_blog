@@ -59,10 +59,10 @@ const videoUrl_ = "https://www.youtube.com/embed/8IOgwHGXqdM";
 
 mainPostAtributes = await findAtributes(parent_id);
 blocks = await findBlocks(parent_id);
-const videoUrl2 = blocks[6].video?.external?.url;
 
 function videoUrlChecker(blockVideo) {
-  const url = blockVideo.video?.external?.url;
+  console.log("BLOCK_VIDEO: ", blockVideo);
+  const url = blockVideo?.video?.external?.url;
   return url;
 }
 
