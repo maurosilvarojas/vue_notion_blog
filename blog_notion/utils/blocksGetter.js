@@ -1,5 +1,5 @@
 export default async function blocksGetter(_postId) {
-  console.log("PARENT ID", _postId);
+  // console.log("PARENT ID", _postId);
   const data = { postId: _postId };
   const responseTest = await $fetch("/api/notionblocks", {
     method: "post",

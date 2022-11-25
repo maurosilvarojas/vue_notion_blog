@@ -3,15 +3,15 @@ import { Client } from "@notionhq/client";
 export default defineEventHandler(async (event) => {
   let postContent = [];
   let response = [];
-  console.log("HEY THERE from post");
+  // console.log("HEY THERE from post");
   let body = await readBody(event);
   const notion = new Client({ auth: process.env.NOTION_API_KEY });
-  console.log("BLOCKS id requested", body.postId);
+  // console.log("BLOCKS id requested", body.postId);
 
   // console.log("POST REQUEST");
   const req_parameters = body;
   // console.log("POST REQUEST id", req_parameters);
-  const postId2 = "43cff44bff5a4073b81376c0ca236f22";
+  // const postId2 = "43cff44bff5a4073b81376c0ca236f22";
 
   response = await notion?.blocks?.children?.list({
     block_id: req_parameters.postId,
@@ -30,6 +30,6 @@ export default defineEventHandler(async (event) => {
         childrenPostContent?.paragraph?.rich_text[0]?.plain_text,
     });
   });
-  console.log("RESPONSE block RAW *****", postContent);
+  // console.log("RESPONSE block RAW *****", postContent);
   return postContent;
 });
