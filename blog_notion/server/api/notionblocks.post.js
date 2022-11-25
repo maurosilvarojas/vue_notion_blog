@@ -21,13 +21,16 @@ export default defineEventHandler(async (event) => {
   // console.log("RESPONSE PRE RAW *****", response);
 
   let finalResponse = await response?.results?.map((childrenPostContent) => {
-    // console.log("CHILDREN POST", childrenPostContent.id);
+    // console.log("CHILDREN POST", childrenPostContent.code);
     postContent.push({
       id: childrenPostContent?.id,
       type: childrenPostContent?.type,
       heading: childrenPostContent?.heading_1?.rich_text[0]?.plain_text,
       paragraphTypeContent:
         childrenPostContent?.paragraph?.rich_text[0]?.plain_text,
+      image: childrenPostContent?.image,
+      code: childrenPostContent?.code,
+      video: childrenPostContent?.video,
     });
   });
   // console.log("RESPONSE block RAW *****", postContent);

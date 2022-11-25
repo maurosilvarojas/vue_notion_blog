@@ -4,14 +4,40 @@
     <h1 class="mainTitle">
       tittle:{{ mainPostAtributes?.properties?.Name?.title[0]?.plain_text }}
     </h1>
-    <p>Tags:</p>
+    <p>Date:{{ mainPostAtributes?.created_time }}</p>
+    <p>
+      Tags:{{ mainPostAtributes?.properties?.abstract.rich_text[0].plain_text }}
+    </p>
 
     <p>{{ $route.params.postId }}</p>
+    <br />
     <ul>
       <li v-for="block in blocks">
         <h1 v-if="titleChecker(block?.type)">{{ block?.heading }}</h1>
 
-        <p>paragraph {{ block?.paragraphTypeContent }}</p>
+        <p v-if="paragraphChecker(block?.type)">
+          {{ block?.paragraphTypeContent }}
+        </p>
+        <img
+          v-if="imgChecker(block?.type)"
+          v-bind:src="block?.image?.external?.url || block?.image?.file?.url"
+        />
+        <code v-if="codeChecker(block?.type)">
+          {{ block?.code?.rich_text[0]?.plain_text }}
+        </code>
+
+        <div v-if="videoChecker(block?.type)">
+          <iframe
+            width="560"
+            height="315"
+            :src="videoUrlChecker(block)"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+
         <hr />
       </li>
     </ul>
@@ -27,19 +53,20 @@ const { postId } = useRoute().params;
 let blocks = [];
 let mainPostAtributes = [];
 const condition = false;
-console.log("finding id ..... from", postId);
+
 const parent_id = postId;
+const videoUrl_ = "https://www.youtube.com/embed/8IOgwHGXqdM";
 
 mainPostAtributes = await findAtributes(parent_id);
 blocks = await findBlocks(parent_id);
+const videoUrl2 = blocks[6].video?.external?.url;
 
-console.log(
-  "ATRIBUTES :",
-  mainPostAtributes.properties.Name.title[0].plain_text
-);
-console.log("ATRIBUTES :", mainPostAtributes?.cover?.external?.url);
+function videoUrlChecker(blockVideo) {
+  const url = blockVideo.video?.external?.url;
+  return url;
+}
+
 async function findAtributes(parent) {
-  console.log("TEST ATRIBUTES", parent);
   const response = await atributesGetter(parent);
   return response;
 }
@@ -50,15 +77,29 @@ async function findBlocks(parent) {
 }
 
 function titleChecker(_type) {
-  console.log("titleChecker", _type === "heading_1");
-
   let response = _type === "heading_1";
   return response;
 }
 
-// if (route.params.group === "admins" && !route.params.id) {
-//   console.log("Warning! Make sure user is authenticated!");
-// }
+function paragraphChecker(_type) {
+  let response = _type === "paragraph";
+  return response;
+}
+
+function imgChecker(_type) {
+  let response = _type === "image";
+  return response;
+}
+
+function codeChecker(_type) {
+  let response = _type === "code";
+  return response;
+}
+
+function videoChecker(_type) {
+  let response = _type === "video";
+  return response;
+}
 </script>
 
 <style lang="postcss" scoped>
