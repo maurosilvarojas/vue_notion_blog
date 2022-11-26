@@ -13,7 +13,7 @@
         md:text-6xl
       "
     >
-      Lately on my code trip... 
+      Lately on my code trip...
     </h1>
 
     <!-- cards -->

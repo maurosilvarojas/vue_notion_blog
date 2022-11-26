@@ -5,7 +5,7 @@ export default async function blocksGetter(_postId) {
     method: "post",
     body: JSON.stringify(data),
   });
-  console.log("RESPONSE TEST", responseTest);
+  // console.log("RESPONSE TEST", responseTest);
   // console.log("BLOCKS GETTER", responseAPI);
   return responseTest;
 }

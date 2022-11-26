@@ -2,12 +2,20 @@
   <div>
     <img v-bind:src="mainPostAtributes?.cover?.external?.url" />
     <h1 class="mainTitle">
-      tittle:{{ mainPostAtributes?.properties?.Name?.title[0]?.plain_text }}
+      {{ mainPostAtributes?.properties?.Name?.title[0]?.plain_text }}
     </h1>
-    <p>Date:{{ mainPostAtributes?.created_time }}</p>
-    <p>
-      Tags:{{ mainPostAtributes?.properties?.abstract.rich_text[0].plain_text }}
-    </p>
+    <div class="flex">
+      <p class="items-end text-red-300">
+        Date:{{ mainPostAtributes?.created_time }}
+      </p>
+      <p>Tags:</p>
+      <ul>
+        <li v-for="tag in mainPostAtributes?.properties?.tags?.multi_select">
+          <p>{{ tag.name }}</p>
+        </li>
+      </ul>
+      
+    </div>
 
     <p>{{ $route.params.postId }}</p>
     <br />
@@ -26,8 +34,9 @@
           {{ block?.code?.rich_text[0]?.plain_text }}
         </code>
 
-        <div v-if="videoChecker(block?.type)">
+        <div>
           <iframe
+            v-if="videoChecker(block?.type)"
             width="560"
             height="315"
             :src="videoUrlChecker(block)"
@@ -46,7 +55,6 @@
 
 <script setup>
 import blocksGetter from "../../utils/blocksGetter";
-
 import atributesGetter from "../../utils/atributeGetter";
 
 const { postId } = useRoute().params;
@@ -68,6 +76,7 @@ function videoUrlChecker(blockVideo) {
 
 async function findAtributes(parent) {
   const response = await atributesGetter(parent);
+  console.log("ATRIBUTES", response);
   return response;
 }
 
@@ -97,13 +106,19 @@ function codeChecker(_type) {
 }
 
 function videoChecker(_type) {
-  let response = _type === "video";
-  return response;
+  console.log("VIDEO CHECKER", _type);
+  let _response = _type === "video";
+  return _response;
 }
 </script>
 
 <style lang="postcss" scoped>
 .mainTitle {
-  @apply px-4 py-2 m-2 text-red-700;
+  @apply max-w-md px-4
+                    text-lg text-red-700
+                   mt-6 m-6
+                    font-bold
+                    text-center
+                    md:text-4xl md:text-left;
 }
 </style>

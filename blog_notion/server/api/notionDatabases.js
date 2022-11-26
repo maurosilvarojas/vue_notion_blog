@@ -29,7 +29,7 @@ export default async (req, res) => {
         id: post?.id,
         title: post?.properties?.Name?.title[0]?.plain_text,
         coverImage: post?.cover?.external?.url,
-        tags: buildTags(post?.properties?.tags?.multi_select),
+        tags:  buildTags(post?.properties?.tags?.multi_select),
         abstract: post?.properties?.abstract?.rich_text[0]?.plain_text,
       });
     });
