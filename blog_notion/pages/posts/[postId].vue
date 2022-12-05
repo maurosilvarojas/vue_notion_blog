@@ -27,7 +27,7 @@
     <!-- <p>{{ $route.params.postId }}</p> -->
     <br />
     <ul>
-      <li v-for="block in blocks">
+      <li class="mt-10 mx-6" v-for="block in blocks">
         <h1 v-if="titleChecker(block?.type)">{{ block?.heading }}</h1>
 
         <p v-if="paragraphChecker(block?.type)">
