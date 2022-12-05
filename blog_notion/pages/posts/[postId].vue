@@ -1,23 +1,30 @@
 <template>
   <div>
     <img v-bind:src="mainPostAtributes?.cover?.external?.url" />
-    <h1 class="mainTitle">
-      {{ mainPostAtributes?.properties?.Name?.title[0]?.plain_text }}
-    </h1>
-    <div class="flex">
-      <p class="items-end text-red-300">
-        Date:{{ mainPostAtributes?.created_time }}
-      </p>
-      <p>Tags:</p>
-      <ul>
-        <li v-for="tag in mainPostAtributes?.properties?.tags?.multi_select">
-          <p>{{ tag.name }}</p>
-        </li>
-      </ul>
-      
+    <div class="flex flex-row">
+      <h1 class="mainTitle">
+        {{ mainPostAtributes?.properties?.Name?.title[0]?.plain_text }}
+      </h1>
+      <div class="flex flex-col">
+        <div
+          class="items-end text-red-300"
+          v-text="formatDate(mainPostAtributes?.created_time)"
+          style="text-align: center"
+        ></div>
+        <div>
+          <p>Tags:</p>
+          <ul>
+            <li
+              v-for="tag in mainPostAtributes?.properties?.tags?.multi_select"
+            >
+              <p>{{ tag.name }}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <p>{{ $route.params.postId }}</p>
+    <!-- <p>{{ $route.params.postId }}</p> -->
     <br />
     <ul>
       <li v-for="block in blocks">
@@ -109,6 +116,13 @@ function videoChecker(_type) {
   console.log("VIDEO CHECKER", _type);
   let _response = _type === "video";
   return _response;
+}
+
+function formatDate(_date) {
+  const newDate = new Date(_date);
+  const response = newDate.toDateString();
+  console.log("DATE", response);
+  return response;
 }
 </script>
 
