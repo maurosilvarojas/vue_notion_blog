@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img v-bind:src="mainPostAtributes?.cover?.external?.url" />
+    <img class="mb-4" v-bind:src="mainPostAtributes?.cover?.external?.url" />
     <div class="flex flex-row">
       <h1 class="mainTitle">
         {{ mainPostAtributes?.properties?.Name?.title[0]?.plain_text }}
@@ -26,7 +26,7 @@
 
     <!-- <p>{{ $route.params.postId }}</p> -->
     <br />
-    <ul>
+    <ul class="mb-10">
       <li class="mt-10 mx-6" v-for="block in blocks">
         <h1 v-if="titleChecker(block?.type)">{{ block?.heading }}</h1>
 
@@ -54,9 +54,10 @@
           ></iframe>
         </div>
 
-        <hr />
+        
       </li>
     </ul>
+    <hr />
   </div>
 </template>
 
